@@ -1,9 +1,0 @@
-package com.test.classes;
-
-public class CloseAddress {
-
-	public static void main(String[] args) {
-
-	}
-
-}
