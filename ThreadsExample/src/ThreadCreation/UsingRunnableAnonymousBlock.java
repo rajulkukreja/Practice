@@ -1,4 +1,4 @@
-package com.caveofprogramming.basic;
+package ThreadCreation;
 
 public class UsingRunnableAnonymousBlock {
 

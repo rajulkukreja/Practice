@@ -1,10 +1,11 @@
-package com.caveofprogramming.basic;
+package ThreadCreation;
 
-class RunnerClass implements Runnable {
-
+class Runner extends Thread {
+	
 	public void run() {
-		for(int i=0;i<10;i++) {
+		for (int i=0 ; i<10 ;i++) {
 			System.out.println("Value is "+i+ " Thread name is "+Thread.currentThread().getName());
+			
 			try {
 				Thread.sleep(100);
 			} catch (InterruptedException e) {
@@ -12,21 +13,18 @@ class RunnerClass implements Runnable {
 			}
 		}
 	}
-	
 }
-
-public class UsingRunnable {
+public class UsingThreadClass {
 
 	public static void main(String[] args) {
-		RunnerClass runn = new RunnerClass();
+		Runner t1 = new Runner();
+		t1.setName("1st Thread");
 		
-		Thread t1 = new Thread(runn);
-		t1.setName("1st thread");
-		
-		Thread t2 = new Thread(runn);
+		Runner t2 = new Runner();
 		t2.setName("2nd Thread");
 		
 		t1.start();
 		t2.start();
 	}
+
 }
