@@ -1,4 +1,4 @@
-package ThreadCreation;
+package com.caveofprogramming.threadCreation;
 
 class Runner extends Thread {
 	

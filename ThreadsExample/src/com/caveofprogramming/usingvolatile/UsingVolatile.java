@@ -1,4 +1,4 @@
-package Usingvolatile;
+package com.caveofprogramming.usingvolatile;
 import java.util.*;
 
 class RunnerVolatile extends Thread {
