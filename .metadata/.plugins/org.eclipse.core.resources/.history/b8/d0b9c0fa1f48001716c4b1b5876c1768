@@ -1,0 +1,72 @@
+package com.test.classes;
+
+import java.util.*;
+
+public class CloseAddress {
+
+	public static void main(String[] args) {
+		String nAdd = "";
+
+		Scanner sc = new Scanner(System.in);
+		System.out.println("Please enter no. of M addresses");
+		int m = sc.nextInt();
+		String[] mAddress = new String[m];
+		
+		sc.nextLine();
+		for (int i=0;i<m;i++) {
+			String add = sc.nextLine();
+			mAddress[i]=add;
+		}
+		System.out.println("Please enter New Address");
+		nAdd = sc.nextLine();
+		
+//		for (int i=0;i<m;i++) {
+//			System.out.println(mAddress[i]);
+//		}
+//		System.out.println(nAdd);
+		
+		List<Set> mAddressSet = getMAddressSet(mAddress);
+		int maxScoreIndex = getBestMatch(nAdd , mAddressSet); 
+		System.out.println("Output is "+mAddress[maxScoreIndex]);
+	}
+
+	private static int getBestMatch(String nAdd, List<Set> mAddressSet) {
+		int score = 0;
+		int maxScoreIndex = 0;
+		int maxScore = -1;
+		String[] nAddSplit = nAdd.split(","); 
+		int index =0;
+		for (Set mAdd : mAddressSet) {
+			score=0;
+			for (int i=0;i<nAddSplit.length;i++) {
+				if (mAdd.contains(nAddSplit[i].trim().toLowerCase())) {
+					score++;
+				}
+			}
+			if(score>maxScore) {
+				maxScoreIndex = index;
+				maxScore = score;
+			}
+			index++;
+		}
+		return 0;
+	}
+
+	private static List<Set> getMAddressSet(String[] mAddress) {
+		List<Set> mAddressSet = new ArrayList<Set>();
+		Set<String> adSet = null;
+		String[] addSplits = null;
+		for (int i=0 ; i<mAddress.length ; i++) {
+			String add = mAddress[i];
+			addSplits = add.split(",");
+			adSet = new HashSet<String>();
+			for (int j=0;j<addSplits.length;j++) {
+				adSet.add(addSplits[j].trim().toLowerCase());
+			}
+			mAddressSet.add(adSet);
+//			System.out.println(adSet.toString());
+		}
+		return mAddressSet;
+	}
+
+}

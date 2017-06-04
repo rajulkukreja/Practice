@@ -1,0 +1,30 @@
+package com.test.classes;
+
+import java.util.List;
+import java.util.Scanner;
+import java.util.Set;
+
+public class CloseMatchingAddress {
+
+	public static void main(String[] args) {
+		String nAdd = "";
+
+		Scanner sc = new Scanner(System.in);
+		System.out.println("Please enter no. of M addresses");
+		int m = sc.nextInt();
+		String[] mAddress = new String[m];
+		
+		sc.nextLine();
+		for (int i=0;i<m;i++) {
+			String add = sc.nextLine();
+			mAddress[i]=add;
+		}
+		System.out.println("Please enter New Address");
+		nAdd = sc.nextLine();
+		
+		List<Set> mAddressSet = getMAddressSet(mAddress);
+		int maxScoreIndex = getBestMatch(nAdd , mAddressSet); 
+		System.out.println("Output is -- "+mAddress[maxScoreIndex]);
+	}
+
+}
