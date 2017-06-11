@@ -3,14 +3,14 @@ package com.caveofprogramming.threadCreation;
 class Runner extends Thread {
 	
 	public void run() {
-		for (int i=0 ; i<10 ;i++) {
+		for (int i=0 ; i<100 ;i++) {
 			System.out.println("Value is "+i+ " Thread name is "+Thread.currentThread().getName());
 			
-			try {
-				Thread.sleep(100);
-			} catch (InterruptedException e) {
-				e.printStackTrace();
-			}
+//			try {
+//				Thread.sleep(1);
+//			} catch (InterruptedException e) {
+//				e.printStackTrace();
+//			}
 		}
 	}
 }
