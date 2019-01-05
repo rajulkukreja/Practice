@@ -24,7 +24,7 @@ public class UsingRunnableAnonymousBlock {
 			
 			@Override
 			public void run() {
-				System.out.println("ncdjnc");
+				System.out.println("abcd");
 			}
 		});
 		t2.start();
